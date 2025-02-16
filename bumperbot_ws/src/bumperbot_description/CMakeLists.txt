@@ -7,21 +7,16 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# find_package(xacro REQUIRED)
-
+find_package(xacro REQUIRED)
 
 # install xacro files
-install(DIRECTORY meshes urdf
+install(DIRECTORY launch meshes urdf rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
-
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-
-  set(ament_cmake_copyright_FOUND TRUE)
- 
+   
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
