@@ -1,0 +1,23 @@
+# Yaml is always start with the name of node to which the configuration parameter is related
+
+controller_manager:
+
+
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+      # publish_rate: 50.
+    
+    simple_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+      # publish_rate: 50
+
+simple_velocity_controller:
+  ros__parameters:
+    joints:
+      - wheel_left_joint
+      - wheel_right_joint

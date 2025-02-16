@@ -4,3 +4,4 @@ install/
 *.log
 .vscode/
 logs/
+bumperbot_ws/log/latest_build

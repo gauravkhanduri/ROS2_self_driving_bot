@@ -10,13 +10,21 @@ from launch.substitutions import Command,LaunchConfiguration
 
 def generate_launch_description():
     bumperbot_description_dir = get_package_share_directory("bumperbot_description")
+    ros_distro= os.environ["ROS_DISTRO"]
+    is_ignition = "True" if ros_distro == "humble" else "False"
+    
     
     model_arg = DeclareLaunchArgument(
         name="model",
         default_value=os.path.join(get_package_share_directory("bumperbot_description"), "urdf", "bumperbot.urdf.xacro"),
         description="Absolute path to robot urdf file"
     )
-    robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("model")]), value_type=str)
+    robot_description = ParameterValue(Command([
+        "xacro ", 
+         LaunchConfiguration("model"),
+        " is_ignition:=", is_ignition
+          ]), 
+        value_type=str)
     
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
