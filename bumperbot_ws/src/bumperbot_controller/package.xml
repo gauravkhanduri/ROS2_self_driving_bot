@@ -11,6 +11,14 @@
 
   <exec_depend>ros2launch</exec_depend>
   <exec_depend>controller_manager</exec_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>Eigen3</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2</depend>
   
 
   <test_depend>ament_lint_auto</test_depend>
